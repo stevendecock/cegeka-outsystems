@@ -20,16 +20,17 @@ of your entities.
     1. Hover over the <Your_Module_Name>_UI module and click "Move To...".
     1. Select the application that contains your original module.
 1. Open your original module, remove all UI-related code (screens, images, themes, session variables, ...).
+1. Make all roles public.
 1. Make sure all entities and server actions that are used in the UI are public.  Put "Expose Read Only" to "Yes" on the entities.
 1. You can remove server actions that are UI-related.
 1. Go to `Menu > Convert to Service Module...` to convert the original module to a Service Module.  
 Remove any remaining UI elements Outsystems complains about.
 1. Publish the module.
 1. Go to the <Your_Module_Name>_UI module that you cloned.
-1. Remove all elements that remained in the original module (that we converted to a Service Module).  
+1. Remove all elements that remained in the original module (that we converted to a Service Module).  This means entities, (most) server actions, roles, ... . 
 Leave all elements you deleted from the original module.  There should now be no overlap in the two modules.  
 Each element is now either in the service module or the web module, not in both. You should now have a lot of *TrueChange* errors.
-1. Add the original module (now a Service Module) as a dependency to the _UI module.  Check all elements that are used in the UI module.  
+1. Add the original module (now a Service Module) as a dependency to the _UI module.  Check all elements that are used in the UI module (including the roles).  
 This should fix your *TrueChange* errors.
 1. Congratulations, you have extracted a service module from your web module!  You have created a new UI module, so that means you have 
 also created new roles for this new UI module.  Your existing users will now need these new roles instead of the old ones.
